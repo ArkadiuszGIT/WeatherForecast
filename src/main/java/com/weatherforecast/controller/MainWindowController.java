@@ -1,5 +1,7 @@
 package com.weatherforecast.controller;
 
+import com.weatherforecast.WeatherManager;
+import com.weatherforecast.view.ViewManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -9,7 +11,7 @@ import javafx.scene.layout.VBox;
 /**
  * Created by Arek on 16.04.2020.
  */
-public class MainWindowController {
+public class MainWindowController extends BaseController {
 
     @FXML
     private VBox currentLocationBackground;
@@ -59,6 +61,10 @@ public class MainWindowController {
 
     @FXML
     private Label targetLocationMoist;
+
+    public MainWindowController(WeatherManager weatherManager, ViewManager viewManager, String fxmlName) {
+        super(weatherManager, viewManager, fxmlName);
+    }
 
     @FXML
     void currentLocationButtonAction() {
