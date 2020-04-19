@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * Created by Arek on 16.04.2020.
@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 public class MainWindowController {
 
     @FXML
-    private Pane currentLocationBackground;
+    private VBox currentLocationBackground;
 
     @FXML
     private TextField currentLocationField;
@@ -37,7 +37,7 @@ public class MainWindowController {
 
 
     @FXML
-    private Pane targetLocationBackground;
+    private VBox targetLocationBackground;
 
     @FXML
     private TextField targetLocationField;
@@ -60,16 +60,13 @@ public class MainWindowController {
     @FXML
     private Label targetLocationMoist;
 
-
     @FXML
     void currentLocationButtonAction() {
-        System.out.println("current cliK!!");
-
+        System.out.println("current click!");
     }
 
     @FXML
     void targetLocationButtonAction() {
-        System.out.println("current cliK!!");
-
+        System.out.println("target click!");
     }
 }
