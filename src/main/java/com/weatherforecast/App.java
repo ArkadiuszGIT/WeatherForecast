@@ -1,6 +1,7 @@
 package com.weatherforecast;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +21,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent parent = FXMLLoader.load(getClass().getResource("view/MainWindow.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
 
         Scene scene = new Scene(parent);
         stage.setScene(scene);

@@ -34,9 +34,43 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaFxEmailClientCourse/JavaFxEmailClientCourse.iml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/com/weatherforecast" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.20229885" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources" />
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast" />
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\java\com\weatherforecast\view" />
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast\view" />
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\java\com\weatherforecast" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.weatherforecast" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.weatherforecast.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.weatherforecast.App" />
+      <module name="WeatherForecast" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.weatherforecast.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -64,6 +98,11 @@
         <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="javafx:compile" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -79,37 +118,57 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="677" y="190" key="#App" timestamp="1587132891687">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="677" y="190" key="#App/0.0.1920.1040@0.0.1920.1040" timestamp="1587132891687" />
+    <state x="552" y="178" width="816" height="820" key="#Intentions" timestamp="1587132791988">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" width="816" height="820" key="#Intentions/0.0.1920.1040@0.0.1920.1040" timestamp="1587132791988" />
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586966777234">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1586966777234" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587040587405">
+    <state x="756" y="404" width="413" height="238" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587137645093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1587040587405" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1587028567898">
+    <state x="756" y="404" width="413" height="238" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1587137645093" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587137125178">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587028567898" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586982615397">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1587137125178" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1587130623063">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1586966797612" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586982615397" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586982615397">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587130623063" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1587288322525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1586966797612" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586982615397" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586982615397">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1587140041745" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587288322525" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1587288322525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1586966797612" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586982615397" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586982615397">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1587140041745" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587288322525" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1587288322524">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1586966797612" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586982615397" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1587140041745" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587288322524" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1587288322525">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1587140041745" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587288322525" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1587139129631">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1587139129631" />
+    <state x="342" y="215" key="new project wizard" timestamp="1587139255395">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="215" key="new project wizard/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1587139255395" />
   </component>
 </project>

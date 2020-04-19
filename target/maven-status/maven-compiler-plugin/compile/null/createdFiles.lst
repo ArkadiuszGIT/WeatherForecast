@@ -1,4 +1,3 @@
 com\weatherforecast\App.class
-com\weatherforecast\SecondaryController.class
-com\weatherforecast\PrimaryController.class
+com\weatherforecast\controller\MainWindowController.class
 module-info.class
