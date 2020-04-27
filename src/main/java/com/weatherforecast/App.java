@@ -19,8 +19,11 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        ViewManager viewManager = new ViewManager(new WeatherManager());
+        WeatherManager weatherManager = new WeatherManager();
+        ViewManager viewManager = new ViewManager(weatherManager);
         viewManager.showMainWindow();
+        weatherManager.showForecast();
+
     }
 
 }
