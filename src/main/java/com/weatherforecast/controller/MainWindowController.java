@@ -25,6 +25,7 @@ public class MainWindowController extends BaseController implements Initializabl
     private CityListReader cityListReader;
     private Integer currentTimeIndex;
     private String dateWithoutTime;
+    private String mainWeather;
 
     @FXML
     private VBox currentLocationBackground;
@@ -93,22 +94,15 @@ public class MainWindowController extends BaseController implements Initializabl
         this.cityListReader = new CityListReader();
         this.currentTimeIndex = 0;
         this.dateWithoutTime = "2020-01-01";
+        this.mainWeather = "Clear";
     }
 
     @FXML
     void currentLocationButtonAction() throws APIException {
 
         if(currentFieldIsValid()){
-            WeatherForecast weatherForecast = new WeatherForecast(currentLocationField.getText());
-            currentLocationName.setText(weatherForecast.getCityName()+ ", " + weatherForecast .getCountryCode());
-            dateWithoutTime = weatherForecast.getDateTimeText(currentTimeIndex).substring(0,10);
-            currentLocationDate.setText(dateWithoutTime );
-            Image image = new Image(weatherForecast .getIconLink(currentTimeIndex));
-            currentLocationImage.setImage(image);
-            currentLocationTemp.setText(weatherForecast .getTemp(currentTimeIndex));
-            currentLocationWeather.setText(weatherForecast .getDescription(currentTimeIndex));
-            currentLocationMoist.setText(weatherForecast .getHumidity(currentTimeIndex));
-            currentLocationWindSpeed.setText(weatherForecast .getWindSpeed(currentTimeIndex));
+            showCurrentWeather(currentLocationField, currentLocationName, currentLocationDate, currentLocationImage,
+                    currentLocationTemp, currentLocationWeather, currentLocationMoist, currentLocationWindSpeed, currentLocationBackground);
 
             /*
             for (int i = 0; i < weatherForecast .getForecastSize(); i++ ){
@@ -129,18 +123,76 @@ public class MainWindowController extends BaseController implements Initializabl
     void targetLocationButtonAction() throws APIException {
 
         if(targetFieldIsValid()){
-            WeatherForecast weatherForecast = new WeatherForecast(targetLocationField.getText());
-            System.out.println(targetLocationField.getText());
+            showCurrentWeather(targetLocationField, targetLocationName, targetLocationDate, targetLocationImage,
+                    targetLocationTemp, targetLocationWeather, targetLocationMoist, targetLocationWindSpeed,
+                    targetLocationBackground);
         }
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        currentLocationField.setText("Warszawa, PL");
-        targetLocationField.setText("New York, US");
+        setStartView();
         TextFields.bindAutoCompletion(currentLocationField, cityListReader.getCityNameWithCountryCodeMap().values());
         TextFields.bindAutoCompletion(targetLocationField, cityListReader.getCityNameWithCountryCodeMap().values());
+    }
+    
+    private void setStartView(){
+        try {
+            currentLocationField.setText("Warszawa, PL");
+            targetLocationField.setText("New York, US");
+            showCurrentWeather(currentLocationField, currentLocationName, currentLocationDate, currentLocationImage,
+                    currentLocationTemp, currentLocationWeather, currentLocationMoist, currentLocationWindSpeed, currentLocationBackground);
+            showCurrentWeather(targetLocationField, targetLocationName, targetLocationDate, targetLocationImage,
+                    targetLocationTemp, targetLocationWeather, targetLocationMoist, targetLocationWindSpeed, targetLocationBackground);
+        } catch (APIException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showCurrentWeather(TextField locationField, Label locationName, Label locationDate,
+                                    ImageView locationImage, Label locationTemp, Label locationWeather,
+                                    Label locationMoist, Label locationWindSpeed, VBox locationBackground) throws APIException {
+
+        WeatherForecast weatherForecast = new WeatherForecast(locationField.getText());
+
+        locationName.setText(weatherForecast.getCityName()+ ", " + weatherForecast .getCountryCode());
+
+        dateWithoutTime = weatherForecast.getDateTimeText(currentTimeIndex).substring(0,10);
+        locationDate.setText(dateWithoutTime );
+
+        Image image = new Image(weatherForecast .getIconLink(currentTimeIndex));
+        locationImage.setImage(image);
+
+        locationTemp.setText(weatherForecast .getTemp(currentTimeIndex));
+        locationWeather.setText(weatherForecast .getDescription(currentTimeIndex));
+        locationMoist.setText(weatherForecast .getHumidity(currentTimeIndex));
+        locationWindSpeed.setText(weatherForecast .getWindSpeed(currentTimeIndex));
+
+        mainWeather = weatherForecast.getMainWeather(currentTimeIndex);
+        setBackground(mainWeather, locationBackground);
+
+    }
+
+    private void setBackground(String mainWeather, VBox locationBackground){
+        switch (mainWeather) {
+            case "Thunderstorm":
+            case "Rain":
+            case "Drizzle":
+                locationBackground.setStyle("-fx-background-color: #8EB0B9");
+                break;
+            case "Snow":
+                locationBackground.setStyle("-fx-background-color: #CEECF5");
+                break;
+            case "Clear":
+                locationBackground.setStyle("-fx-background-color: #00CCFF");
+                break;
+            case "Clouds":
+                locationBackground.setStyle("-fx-background-color: #0099FF");
+                break;
+            default:
+                locationBackground.setStyle("-fx-background-color: #BDBDBD");
+                break;
+        }
     }
 
     private boolean currentFieldIsValid(){

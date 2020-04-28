@@ -94,6 +94,13 @@ public class WeatherForecast {
         return null;
     }
 
+    public String getMainWeather(int forecastIndex){
+        if(hourlyWeatherForecast.getDataList().get(forecastIndex).getWeatherList().get(0).hasMainInfo()){
+            return hourlyWeatherForecast.getDataList().get(forecastIndex).getWeatherList().get(0).getMainInfo();
+        }
+        return null;
+    }
+
     public String getIconLink(int forecastIndex){
         if(hourlyWeatherForecast.getDataList().get(forecastIndex).getWeatherList().get(0).hasIconLink()){
             return hourlyWeatherForecast.getDataList().get(forecastIndex).getWeatherList().get(0).getIconLink();
