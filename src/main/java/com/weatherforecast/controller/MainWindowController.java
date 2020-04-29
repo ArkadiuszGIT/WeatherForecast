@@ -23,9 +23,6 @@ import java.util.ResourceBundle;
 public class MainWindowController extends BaseController implements Initializable {
 
     private CityListReader cityListReader;
-    private Integer currentTimeIndex;
-    private String dateWithoutTime;
-    private String mainWeather;
 
     @FXML
     private VBox currentLocationBackground;
@@ -92,9 +89,6 @@ public class MainWindowController extends BaseController implements Initializabl
     public MainWindowController(WeatherManager weatherManager, ViewManager viewManager, String fxmlName){
         super(weatherManager, viewManager, fxmlName);
         this.cityListReader = new CityListReader();
-        this.currentTimeIndex = 0;
-        this.dateWithoutTime = "2020-01-01";
-        this.mainWeather = "Clear";
     }
 
     @FXML
@@ -135,7 +129,7 @@ public class MainWindowController extends BaseController implements Initializabl
         TextFields.bindAutoCompletion(currentLocationField, cityListReader.getCityNameWithCountryCodeMap().values());
         TextFields.bindAutoCompletion(targetLocationField, cityListReader.getCityNameWithCountryCodeMap().values());
     }
-    
+
     private void setStartView(){
         try {
             currentLocationField.setText("Warszawa, PL");
@@ -154,21 +148,26 @@ public class MainWindowController extends BaseController implements Initializabl
                                     Label locationMoist, Label locationWindSpeed, VBox locationBackground) throws APIException {
 
         WeatherForecast weatherForecast = new WeatherForecast(locationField.getText());
+        int currentTimeIndex = 0;
 
-        locationName.setText(weatherForecast.getCityName()+ ", " + weatherForecast .getCountryCode());
-
-        dateWithoutTime = weatherForecast.getDateTimeText(currentTimeIndex).substring(0,10);
-        locationDate.setText(dateWithoutTime );
-
+        String cityNameWithCountryCode = weatherForecast.getCityName()+ ", " + weatherForecast .getCountryCode();
+        String date =
+                weatherForecast.getDayOfTheWeek(currentTimeIndex) + ", " + weatherForecast.getDateWithoutTime(currentTimeIndex);
         Image image = new Image(weatherForecast .getIconLink(currentTimeIndex));
+        String temp = "Temperature: " + weatherForecast .getTemp(currentTimeIndex);
+        String description = "Weather: " + weatherForecast .getDescription(currentTimeIndex);
+        String humidity = "Humidity: " + weatherForecast .getHumidity(currentTimeIndex);
+        String windSpeed = "Wind Speed: " + weatherForecast .getWindSpeed(currentTimeIndex);
+        String mainWeather = weatherForecast.getMainWeather(currentTimeIndex);
+
+
+        locationName.setText(cityNameWithCountryCode);
+        locationDate.setText(date);
         locationImage.setImage(image);
-
-        locationTemp.setText(weatherForecast .getTemp(currentTimeIndex));
-        locationWeather.setText(weatherForecast .getDescription(currentTimeIndex));
-        locationMoist.setText(weatherForecast .getHumidity(currentTimeIndex));
-        locationWindSpeed.setText(weatherForecast .getWindSpeed(currentTimeIndex));
-
-        mainWeather = weatherForecast.getMainWeather(currentTimeIndex);
+        locationTemp.setText(temp);
+        locationWeather.setText(description);
+        locationMoist.setText(humidity);
+        locationWindSpeed.setText(windSpeed);
         setBackground(mainWeather, locationBackground);
 
     }

@@ -12,7 +12,6 @@ public class WeatherForecast {
     private OWM owm = new OWM("dc43b76f47ccb750e836361fb3143462");
     private HourlyWeatherForecast hourlyWeatherForecast;
 
-
     public WeatherForecast(String cityNameWithCountryCode) throws APIException {
         owm.setUnit(OWM.Unit.METRIC);
 
@@ -57,13 +56,23 @@ public class WeatherForecast {
         }
         return null;
     }
-
+    public String getDayOfTheWeek(int forecastIndex){
+        if(hourlyWeatherForecast.getDataList().get(forecastIndex).hasDateTime()){
+            return String.valueOf(hourlyWeatherForecast.getDataList().get(forecastIndex).getDateTime()).substring(0,3);
+        }
+        return null;
+    }
     public String getDateTimeText(int forecastIndex){
         if(hourlyWeatherForecast.getDataList().get(forecastIndex).hasDateTimeText()){
             return hourlyWeatherForecast.getDataList().get(forecastIndex).getDateTimeText();
         }
         return null;
     }
+
+    public String getDateWithoutTime(int forecastIndex){
+        return getDateTimeText(forecastIndex).substring(0,10);
+    }
+
 
     public String getTemp(int forecastIndex){
         if(hourlyWeatherForecast.getDataList().get(forecastIndex).getMainData().hasTemp()){
