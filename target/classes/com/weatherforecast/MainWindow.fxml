@@ -3,18 +3,21 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane layoutY="38.0" prefHeight="562.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -64,20 +67,51 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <ImageView fx:id="currentLocationImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label fx:id="currentLocationTemp" alignment="CENTER" contentDisplay="CENTER" text="35 °C" />
-                  <Label fx:id="currentLocationWeather" alignment="CENTER" contentDisplay="CENTER" text="Sunny" />
-                  <Label fx:id="currentLocationMoist" alignment="CENTER" contentDisplay="CENTER" text="90%" />
-                  <Label fx:id="currentLocationWindSpeed" text="Label" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
+                     <children>
+                        <ImageView fx:id="currentLocationImage" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <Separator orientation="VERTICAL" prefHeight="100.0" />
+                        <VBox prefHeight="101.0" prefWidth="196.0">
+                           <children>
+                              <Label fx:id="currentLocationWeather" alignment="CENTER" contentDisplay="CENTER" text="Sunny">
+                                 <font>
+                                    <Font name="Calibri Light" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="currentLocationTemp" alignment="CENTER" contentDisplay="CENTER" text="35 °C">
+                                 <font>
+                                    <Font name="Calibri Light" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="currentLocationMoist" alignment="CENTER" contentDisplay="CENTER" text="90%">
+                                 <font>
+                                    <Font name="Calibri Light" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="currentLocationWindSpeed" text="10 km/h">
+                                 <font>
+                                    <Font name="Calibri Light" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <TilePane fx:id="currentLocationNextDays" prefHeight="307.0" prefWidth="400.0" />
                </children>
             </VBox>
             <VBox fx:id="targetLocationBackground" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #00CCFF;" GridPane.columnIndex="1">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="TARGET LOCATION" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="TARGET LOCATION">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
@@ -100,12 +134,12 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="targetLocationName" alignment="CENTER" contentDisplay="CENTER" text="NOWY YORK, US" textFill="WHITE">
+                  <Label fx:id="targetLocationName" alignment="CENTER" contentDisplay="CENTER" text="NOWY YORK, US">
                      <font>
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="targetLocationDate" alignment="CENTER" contentDisplay="CENTER" text="Czwartek, 16 kwietnia 2020" textFill="WHITE">
+                  <Label fx:id="targetLocationDate" alignment="CENTER" contentDisplay="CENTER" text="Czwartek, 16 kwietnia 2020">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
@@ -113,18 +147,54 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <ImageView fx:id="targetLocationImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label fx:id="targetLocationWeather" alignment="CENTER" contentDisplay="CENTER" text="Sunny" />
-                  <Label fx:id="targetLocationTemp" alignment="CENTER" contentDisplay="CENTER" text="35 °C" />
-                  <Label fx:id="targetLocationMoist" alignment="CENTER" contentDisplay="CENTER" text="90%" />
-                  <Label fx:id="targetLocationWindSpeed" text="Label" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="targetLocationImage" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <Separator orientation="VERTICAL" prefHeight="100.0" />
+                        <VBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="targetLocationWeather" alignment="CENTER" contentDisplay="CENTER" text="Sunny">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Calibri Light" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="targetLocationTemp" alignment="CENTER" contentDisplay="CENTER" text="35 °C">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Calibri Light" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="targetLocationMoist" alignment="CENTER" contentDisplay="CENTER" text="90%">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Calibri Light" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="targetLocationWindSpeed" text="10 km/h">
+                                 <font>
+                                    <Font name="Calibri Light" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <TilePane fx:id="targetLocationNextDays" prefHeight="331.0" prefWidth="400.0" />
                </children>
             </VBox>
          </children>
       </GridPane>
+      <Label alignment="CENTER" layoutY="-1.0" prefHeight="39.0" prefWidth="800.0" style="-fx-background-color: black;" text="Weather Forecast By Arkadiusz Kawalec" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
