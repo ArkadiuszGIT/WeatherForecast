@@ -6,15 +6,25 @@ import com.weatherforecast.model.WeatherForecast;
 import com.weatherforecast.view.ViewManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
+import javafx.geometry.VerticalDirection;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import net.aksingh.owmjapis.api.APIException;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -54,6 +64,9 @@ public class MainWindowController extends BaseController implements Initializabl
     @FXML
     private Label currentLocationWindSpeed;
 
+    @FXML
+    private TilePane currentLocationNextDays;
+
 
 
     @FXML
@@ -86,6 +99,9 @@ public class MainWindowController extends BaseController implements Initializabl
     @FXML
     private Label targetLocationWindSpeed;
 
+    @FXML
+    private TilePane targetLocationNextDays;
+
     public MainWindowController(WeatherManager weatherManager, ViewManager viewManager, String fxmlName){
         super(weatherManager, viewManager, fxmlName);
         this.cityListReader = new CityListReader();
@@ -97,19 +113,7 @@ public class MainWindowController extends BaseController implements Initializabl
         if(currentFieldIsValid()){
             showCurrentWeather(currentLocationField, currentLocationName, currentLocationDate, currentLocationImage,
                     currentLocationTemp, currentLocationWeather, currentLocationMoist, currentLocationWindSpeed, currentLocationBackground);
-
-            /*
-            for (int i = 0; i < weatherForecast .getForecastSize(); i++ ){
-                System.out.println("");
-                System.out.println(i);
-                System.out.println(weatherForecast .getDateTimeText(i));
-                System.out.println(weatherForecast .getTemp(i));
-                System.out.println(weatherForecast .getHumidity(i));
-                System.out.println(weatherForecast .getDescription(i));
-                System.out.println(weatherForecast .getIconLink(i));
-                System.out.println(weatherForecast .getWindSpeed(i));
-            }
-            */
+            showNextDays(currentLocationField, currentLocationNextDays);
         }
     }
 
@@ -120,6 +124,7 @@ public class MainWindowController extends BaseController implements Initializabl
             showCurrentWeather(targetLocationField, targetLocationName, targetLocationDate, targetLocationImage,
                     targetLocationTemp, targetLocationWeather, targetLocationMoist, targetLocationWindSpeed,
                     targetLocationBackground);
+            showNextDays(targetLocationField, targetLocationNextDays);
         }
     }
 
@@ -136,8 +141,10 @@ public class MainWindowController extends BaseController implements Initializabl
             targetLocationField.setText("New York, US");
             showCurrentWeather(currentLocationField, currentLocationName, currentLocationDate, currentLocationImage,
                     currentLocationTemp, currentLocationWeather, currentLocationMoist, currentLocationWindSpeed, currentLocationBackground);
+            showNextDays(currentLocationField, currentLocationNextDays);
             showCurrentWeather(targetLocationField, targetLocationName, targetLocationDate, targetLocationImage,
                     targetLocationTemp, targetLocationWeather, targetLocationMoist, targetLocationWindSpeed, targetLocationBackground);
+            showNextDays(targetLocationField, targetLocationNextDays);
         } catch (APIException e) {
             e.printStackTrace();
         }
@@ -151,7 +158,7 @@ public class MainWindowController extends BaseController implements Initializabl
         int currentTimeIndex = 0;
 
         String cityNameWithCountryCode = weatherForecast.getCityName()+ ", " + weatherForecast .getCountryCode();
-        String date =
+        String dateWithDay =
                 weatherForecast.getDayOfTheWeek(currentTimeIndex) + ", " + weatherForecast.getDateWithoutTime(currentTimeIndex);
         Image image = new Image(weatherForecast .getIconLink(currentTimeIndex));
         String temp = "Temperature: " + weatherForecast .getTemp(currentTimeIndex);
@@ -162,7 +169,7 @@ public class MainWindowController extends BaseController implements Initializabl
 
 
         locationName.setText(cityNameWithCountryCode);
-        locationDate.setText(date);
+        locationDate.setText(dateWithDay);
         locationImage.setImage(image);
         locationTemp.setText(temp);
         locationWeather.setText(description);
@@ -170,6 +177,85 @@ public class MainWindowController extends BaseController implements Initializabl
         locationWindSpeed.setText(windSpeed);
         setBackground(mainWeather, locationBackground);
 
+    }
+
+    private void showNextDays(TextField locationField, TilePane locationNextDays) throws APIException {
+
+        locationNextDays.getChildren().clear();
+        WeatherForecast weatherForecast = new WeatherForecast(locationField.getText());
+        int currentTimeIndex = 0;
+        String today = weatherForecast .getDateWithoutTime(currentTimeIndex);
+        String noon = "12:00:00";
+        int days = 1;
+
+        for (int timeIndex = 0; timeIndex < weatherForecast .getForecastSize(); timeIndex++ ){
+
+            String date = weatherForecast .getDateWithoutTime(timeIndex);
+            String time = weatherForecast .getTimeWithoutDate(timeIndex);
+
+            if(!date.equals(today) && time.equals(noon) && days <= 4){
+
+                String dateWithDay =
+                        weatherForecast.getDayOfTheWeek(timeIndex) + ", " + weatherForecast .getDateWithoutTime(timeIndex);
+                Image image = new Image(weatherForecast .getIconLink(timeIndex));
+                String temp = weatherForecast .getTemp(timeIndex);
+                String description = weatherForecast .getDescription(timeIndex);
+                String humidity = weatherForecast .getHumidity(timeIndex);
+                String windSpeed = weatherForecast .getWindSpeed(timeIndex);
+
+                Label dailyDateWithDay = new Label();
+                dailyDateWithDay.setPadding(new Insets(0, 0, 0, 40));
+                dailyDateWithDay.setFont(Font.font("Calibri", FontWeight.BOLD, 15));
+                dailyDateWithDay.setText(dateWithDay);
+
+                HBox nextDay = new HBox();
+                nextDay.setAlignment(Pos.CENTER);
+
+                ImageView dailyImage = new ImageView();
+                dailyImage.setImage(image);
+                dailyImage.setFitHeight(100);
+                dailyImage.setFitWidth(100);
+
+                Separator separator = new Separator();
+                separator.setMaxHeight(80);
+                separator.setOrientation(Orientation.VERTICAL);
+
+                VBox nextDayInfo = new VBox();
+                nextDayInfo.setAlignment(Pos.TOP_LEFT);
+
+                VBox nextDayWithName = new VBox();
+                nextDayWithName.setAlignment(Pos.CENTER);
+
+                Label dailyWeather = new Label();
+                dailyWeather.setPadding(new Insets(7, 0, 5, 0));
+                dailyWeather.setText(description);
+
+                Label dailyTemperature = new Label();
+                dailyTemperature.setPadding(new Insets(0, 0, 5, 0));
+                dailyTemperature.setText(temp);
+
+                Label dailyHumidity = new Label();
+                dailyHumidity.setPadding(new Insets(0, 0, 5, 0));
+                dailyHumidity.setText(humidity);
+
+                Label dailyWindSpeed = new Label();
+                dailyWindSpeed.setText(windSpeed);
+
+                nextDayInfo.getChildren().addAll(dailyWeather, dailyTemperature, dailyHumidity, dailyWindSpeed);
+
+                nextDay.getChildren().addAll(dailyImage, separator, nextDayInfo);
+
+                nextDayWithName.getChildren().addAll(dailyDateWithDay, nextDay);
+
+                locationNextDays.getChildren().add(nextDayWithName);
+                locationNextDays.setAlignment(Pos.CENTER);
+                locationNextDays.setPrefColumns(2);
+                locationNextDays.setPrefRows(2);
+                locationNextDays.setMaxWidth(Region.USE_PREF_SIZE);
+
+                days++;
+            }
+        }
     }
 
     private void setBackground(String mainWeather, VBox locationBackground){

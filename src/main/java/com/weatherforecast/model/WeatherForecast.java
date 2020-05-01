@@ -73,6 +73,10 @@ public class WeatherForecast {
         return getDateTimeText(forecastIndex).substring(0,10);
     }
 
+    public String getTimeWithoutDate(int forecastIndex){
+        return getDateTimeText(forecastIndex).substring(11);
+    }
+
 
     public String getTemp(int forecastIndex){
         if(hourlyWeatherForecast.getDataList().get(forecastIndex).getMainData().hasTemp()){
