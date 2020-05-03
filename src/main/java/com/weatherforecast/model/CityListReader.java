@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.google.gson.reflect.TypeToken;
-import com.weatherforecast.model.City;
-
 
 /**
  * Created by Arek on 16.04.2020.

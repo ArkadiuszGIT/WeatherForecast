@@ -1,6 +1,5 @@
 package com.weatherforecast.controller;
 
-import com.weatherforecast.WeatherManager;
 import com.weatherforecast.view.ViewManager;
 
 /**
@@ -8,12 +7,10 @@ import com.weatherforecast.view.ViewManager;
  */
 public abstract class BaseController {
 
-    protected WeatherManager weatherManager;
     protected ViewManager viewManager;
     private String fxmlName;
 
-    public BaseController(WeatherManager weatherManager, ViewManager viewManager, String fxmlName) {
-        this.weatherManager = weatherManager;
+    public BaseController(ViewManager viewManager, String fxmlName) {
         this.viewManager = viewManager;
         this.fxmlName = fxmlName;
     }
