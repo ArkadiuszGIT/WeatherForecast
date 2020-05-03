@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane layoutY="38.0" prefHeight="562.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0">
+      <GridPane layoutY="38.0" prefHeight="562.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -26,7 +26,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox fx:id="currentLocationBackground" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #0099FF;">
+            <VBox fx:id="currentLocationBackground" alignment="TOP_CENTER" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #0099FF;">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="CURRENT LOCATION">
                      <font>
@@ -106,10 +106,10 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <TilePane fx:id="currentLocationNextDays" prefHeight="307.0" prefWidth="400.0" />
+                  <TilePane fx:id="currentLocationNextDays" prefHeight="307.0" prefWidth="450.0" />
                </children>
             </VBox>
-            <VBox fx:id="targetLocationBackground" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #00CCFF;" GridPane.columnIndex="1">
+            <VBox fx:id="targetLocationBackground" alignment="TOP_CENTER" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #00CCFF;" GridPane.columnIndex="1">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="TARGET LOCATION">
                      <font>
@@ -186,7 +186,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <TilePane fx:id="targetLocationNextDays" prefHeight="331.0" prefWidth="400.0" />
+                  <TilePane fx:id="targetLocationNextDays" prefHeight="331.0" prefWidth="450.0" />
                </children>
             </VBox>
          </children>
