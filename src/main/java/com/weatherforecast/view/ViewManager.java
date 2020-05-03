@@ -1,6 +1,5 @@
 package com.weatherforecast.view;
 
-import com.weatherforecast.WeatherManager;
 import com.weatherforecast.controller.BaseController;
 import com.weatherforecast.controller.MainWindowController;
 import javafx.fxml.FXMLLoader;
@@ -15,16 +14,9 @@ import java.io.IOException;
  */
 public class ViewManager {
 
-    private WeatherManager weatherManager;
-
-    public ViewManager(WeatherManager weatherManager) {
-        this.weatherManager = weatherManager;
-    }
-
     public void showMainWindow(){
-        System.out.println("Show main window called");
 
-        BaseController controller = new MainWindowController(weatherManager,this,"/com/weatherforecast/MainWindow.fxml");
+        BaseController controller = new MainWindowController(this,"/com/weatherforecast/MainWindow.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(controller.getFxmlName()));
         fxmlLoader.setController(controller);
         Parent parent;
