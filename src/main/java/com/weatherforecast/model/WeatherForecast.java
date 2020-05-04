@@ -9,7 +9,7 @@ import net.aksingh.owmjapis.model.HourlyWeatherForecast;
  */
 public class WeatherForecast {
 
-    private OWM owm = new OWM("dc43b76f47ccb750e836361fb3143462");
+    private OWM owm = new OWM("YOUR_API_KEY");
     private HourlyWeatherForecast hourlyWeatherForecast;
 
     public WeatherForecast(String cityNameWithCountryCode) throws APIException {
