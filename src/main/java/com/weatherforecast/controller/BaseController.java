@@ -7,8 +7,8 @@ import com.weatherforecast.view.ViewManager;
  */
 public abstract class BaseController {
 
-    protected ViewManager viewManager;
-    private String fxmlName;
+    protected final ViewManager viewManager;
+    private final String fxmlName;
 
     public BaseController(ViewManager viewManager, String fxmlName) {
         this.viewManager = viewManager;
