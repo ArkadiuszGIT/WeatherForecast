@@ -1,7 +1,8 @@
 package com.weatherforecast.controller;
 
-import com.weatherforecast.model.CityListReader;
-import com.weatherforecast.model.WeatherForecast;
+import com.weatherforecast.model.CitiesReader;
+import com.weatherforecast.model.Weather;
+import com.weatherforecast.model.WeatherForecastFetcher;
 import com.weatherforecast.view.ViewManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +14,10 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import net.aksingh.owmjapis.api.APIException;
@@ -27,7 +31,7 @@ import java.util.ResourceBundle;
  */
 public class MainWindowController extends BaseController implements Initializable {
 
-    private CityListReader cityListReader;
+    private CitiesReader citiesReader;
 
     @FXML
     private VBox currentLocationBackground;
@@ -97,15 +101,18 @@ public class MainWindowController extends BaseController implements Initializabl
     @FXML
     private TilePane targetLocationNextDays;
 
-    public MainWindowController(ViewManager viewManager, String fxmlName){
-        super(viewManager, fxmlName);
-        this.cityListReader = new CityListReader();
-    }
+    private final WeatherForecastFetcher weatherForecastFetcher;
+
+     public MainWindowController(ViewManager viewManager, String fxmlName) {
+         super(viewManager, fxmlName);
+         this.citiesReader = new CitiesReader();
+         weatherForecastFetcher = new WeatherForecastFetcher("YOUR_API_KEY");
+     }
 
     @FXML
     void currentLocationButtonAction() throws APIException {
 
-        if(currentFieldIsValid()){
+        if (currentFieldIsValid()) {
             showCurrentWeather(currentLocationField, currentLocationName, currentLocationDate, currentLocationImage,
                     currentLocationTemp, currentLocationWeather, currentLocationMoist, currentLocationWindSpeed, currentLocationBackground);
             showNextDays(currentLocationField, currentLocationNextDays);
@@ -115,7 +122,7 @@ public class MainWindowController extends BaseController implements Initializabl
     @FXML
     void targetLocationButtonAction() throws APIException {
 
-        if(targetFieldIsValid()){
+        if (targetFieldIsValid()) {
             showCurrentWeather(targetLocationField, targetLocationName, targetLocationDate, targetLocationImage,
                     targetLocationTemp, targetLocationWeather, targetLocationMoist, targetLocationWindSpeed,
                     targetLocationBackground);
@@ -126,11 +133,11 @@ public class MainWindowController extends BaseController implements Initializabl
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setStartView();
-        TextFields.bindAutoCompletion(currentLocationField, cityListReader.getCityNameWithCountryCodeMap().values());
-        TextFields.bindAutoCompletion(targetLocationField, cityListReader.getCityNameWithCountryCodeMap().values());
+        TextFields.bindAutoCompletion(currentLocationField, citiesReader.getCityNameWithCountryCodeMap().values());
+        TextFields.bindAutoCompletion(targetLocationField, citiesReader.getCityNameWithCountryCodeMap().values());
     }
 
-    private void setStartView(){
+    private void setStartView() {
         try {
             currentLocationField.setText("Warszawa, PL");
             targetLocationField.setText("New York, US");
@@ -149,18 +156,18 @@ public class MainWindowController extends BaseController implements Initializabl
                                     ImageView locationImage, Label locationTemp, Label locationWeather,
                                     Label locationMoist, Label locationWindSpeed, VBox locationBackground) throws APIException {
 
-        WeatherForecast weatherForecast = new WeatherForecast(locationField.getText());
+        var weather = weatherForecastFetcher.getWeatherForecast(locationField.getText());
         int currentTimeIndex = 0;
 
-        String cityNameWithCountryCode = weatherForecast.getCityName()+ ", " + weatherForecast .getCountryCode();
+        String cityNameWithCountryCode = weather.getCityName() + ", " + weather .getCountryCode();
         String dateWithDay =
-                weatherForecast.getDayOfTheWeek(currentTimeIndex) + ", " + weatherForecast.getDateWithoutTime(currentTimeIndex);
-        Image image = new Image(weatherForecast .getIconLink(currentTimeIndex));
-        String temp = "Temperature: " + weatherForecast .getTemp(currentTimeIndex);
-        String description = "Weather: " + weatherForecast .getDescription(currentTimeIndex);
-        String humidity = "Humidity: " + weatherForecast .getHumidity(currentTimeIndex);
-        String windSpeed = "Wind Speed: " + weatherForecast .getWindSpeed(currentTimeIndex);
-        String mainWeather = weatherForecast.getMainWeather(currentTimeIndex);
+                weather.getDayOfTheWeek(currentTimeIndex) + ", " + weather.getDateWithoutTime(currentTimeIndex);
+        Image image = new Image(weather .getIconLink(currentTimeIndex));
+        String temp = "Temperature: " + weather .getTemp(currentTimeIndex);
+        String description = "Weather: " + weather .getDescription(currentTimeIndex);
+        String humidity = "Humidity: " + weather .getHumidity(currentTimeIndex);
+        String windSpeed = "Wind Speed: " + weather .getWindSpeed(currentTimeIndex);
+        String mainWeather = weather.getMainWeather(currentTimeIndex);
 
 
         locationName.setText(cityNameWithCountryCode);
@@ -177,33 +184,33 @@ public class MainWindowController extends BaseController implements Initializabl
     private void showNextDays(TextField locationField, TilePane locationNextDays) throws APIException {
 
         locationNextDays.getChildren().clear();
-        WeatherForecast weatherForecast = new WeatherForecast(locationField.getText());
+        var weather = weatherForecastFetcher.getWeatherForecast(locationField.getText());
         int currentTimeIndex = 0;
-        String today = weatherForecast .getDateWithoutTime(currentTimeIndex);
+        String today = weather.getDateWithoutTime(currentTimeIndex);
         String noon = "12:00:00";
         int days = 1;
 
-        for (int timeIndex = 0; timeIndex < weatherForecast .getForecastSize(); timeIndex++ ){
+        for (int timeIndex = 0; timeIndex < weather.getForecastSize(); timeIndex++ ){
 
-            String date = weatherForecast .getDateWithoutTime(timeIndex);
-            String time = weatherForecast .getTimeWithoutDate(timeIndex);
+            String date = weather.getDateWithoutTime(timeIndex);
+            String time = weather.getTimeWithoutDate(timeIndex);
 
-            if(!date.equals(today) && time.equals(noon) && days <= 4){
-                setLayoutForNextDays(weatherForecast, timeIndex, locationNextDays);
+            if (!date.equals(today) && time.equals(noon) && days <= 4) {
+                setLayoutForNextDays(weather, timeIndex, locationNextDays);
                 days++;
             }
         }
     }
 
-    private void setLayoutForNextDays(WeatherForecast weatherForecast, int timeIndex, TilePane locationNextDays){
+    private void setLayoutForNextDays(Weather weather, int timeIndex, TilePane locationNextDays) {
 
         String dateWithDay =
-                weatherForecast.getDayOfTheWeek(timeIndex) + ", " + weatherForecast .getDateWithoutTime(timeIndex);
-        Image image = new Image(weatherForecast .getIconLink(timeIndex));
-        String temp = weatherForecast .getTemp(timeIndex);
-        String description = weatherForecast .getDescription(timeIndex);
-        String humidity = weatherForecast .getHumidity(timeIndex);
-        String windSpeed = weatherForecast .getWindSpeed(timeIndex);
+                weather.getDayOfTheWeek(timeIndex) + ", " + weather .getDateWithoutTime(timeIndex);
+        Image image = new Image(weather .getIconLink(timeIndex));
+        String temp = weather .getTemp(timeIndex);
+        String description = weather .getDescription(timeIndex);
+        String humidity = weather .getHumidity(timeIndex);
+        String windSpeed = weather .getWindSpeed(timeIndex);
 
         Label dailyDateWithDay = new Label();
         dailyDateWithDay.setPadding(new Insets(0, 0, 0, 40));
@@ -256,7 +263,7 @@ public class MainWindowController extends BaseController implements Initializabl
         locationNextDays.setMaxWidth(Region.USE_PREF_SIZE);
     }
 
-    private void setBackground(String mainWeather, VBox locationBackground){
+    private void setBackground(String mainWeather, VBox locationBackground) {
         switch (mainWeather) {
             case "Thunderstorm":
             case "Rain":
@@ -278,8 +285,8 @@ public class MainWindowController extends BaseController implements Initializabl
         }
     }
 
-    private boolean currentFieldIsValid(){
-        if(currentLocationField.getText().isEmpty()){
+    private boolean currentFieldIsValid() {
+        if(currentLocationField.getText().isEmpty()) {
             currentErrorLabel.setText("Please enter the current city");
             return false;
         }
@@ -287,8 +294,8 @@ public class MainWindowController extends BaseController implements Initializabl
         return true;
     }
 
-    private boolean targetFieldIsValid(){
-        if(targetLocationField.getText().isEmpty()){
+    private boolean targetFieldIsValid() {
+        if(targetLocationField.getText().isEmpty()) {
             targetErrorLabel.setText("Please enter the target city");
             return false;
         }
