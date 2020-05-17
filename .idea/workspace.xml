@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33e98ce3-2bde-439b-9347-fc05d266a980" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/weatherforecast/model/Weather.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/weatherforecast/model/CitiesReaderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/com/weatherforecast/CityList.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/com/weatherforecast/MainWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/weatherforecast/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/weatherforecast/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/weatherforecast/controller/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/weatherforecast/controller/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/weatherforecast/model/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/weatherforecast/model/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/weatherforecast/model/CityListReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/weatherforecast/model/CitiesReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/weatherforecast/model/WeatherForecast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/weatherforecast/model/WeatherForecastFetcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +19,7 @@
         <option value="FxmlFile" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -44,21 +42,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/com/weatherforecast" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20229885" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.weatherforecast" />
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.weatherforecast.model" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.weatherforecast.controller" />
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast" />
@@ -66,6 +63,16 @@
       <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\java\com\weatherforecast\model" />
       <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\java\com\weatherforecast\view" />
       <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast\images" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.weatherforecast" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.weatherforecast.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\test" />
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -234,6 +241,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="621" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587990951656" />
+    <state x="913" y="229" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1589744195932">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="913" y="229" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589744195932" />
     <state x="342" y="215" key="new project wizard" timestamp="1589043431912">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
