@@ -31,8 +31,6 @@ import java.util.ResourceBundle;
  */
 public class MainWindowController extends BaseController implements Initializable {
 
-    private CitiesReader citiesReader;
-
     @FXML
     private VBox currentLocationBackground;
 
@@ -101,11 +99,12 @@ public class MainWindowController extends BaseController implements Initializabl
     @FXML
     private TilePane targetLocationNextDays;
 
+    private final CitiesReader citiesReader;
     private final WeatherForecastFetcher weatherForecastFetcher;
 
      public MainWindowController(ViewManager viewManager, String fxmlName) {
          super(viewManager, fxmlName);
-         this.citiesReader = new CitiesReader();
+         citiesReader = new CitiesReader();
          weatherForecastFetcher = new WeatherForecastFetcher("dc43b76f47ccb750e836361fb3143462");
      }
 
