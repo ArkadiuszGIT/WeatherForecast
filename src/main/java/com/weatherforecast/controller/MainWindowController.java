@@ -106,7 +106,7 @@ public class MainWindowController extends BaseController implements Initializabl
      public MainWindowController(ViewManager viewManager, String fxmlName) {
          super(viewManager, fxmlName);
          this.citiesReader = new CitiesReader();
-         weatherForecastFetcher = new WeatherForecastFetcher("YOUR_API_KEY");
+         weatherForecastFetcher = new WeatherForecastFetcher("dc43b76f47ccb750e836361fb3143462");
      }
 
     @FXML

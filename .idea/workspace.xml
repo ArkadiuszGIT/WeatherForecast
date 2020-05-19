@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33e98ce3-2bde-439b-9347-fc05d266a980" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/weatherforecast/model/CitiesReaderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/com/weatherforecast/CityList.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/com/weatherforecast/MainWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/weatherforecast/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/weatherforecast/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/weatherforecast/controller/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/weatherforecast/controller/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/weatherforecast/model/CitiesReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/weatherforecast/model/CitiesReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/weatherforecast/model/CitiesReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/weatherforecast/model/CitiesReaderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +53,20 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.weatherforecast.model" />
+      <recent name="com.weatherforecast.view" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.weatherforecast" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\test" />
+      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.weatherforecast.controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast" />
@@ -64,18 +75,8 @@
       <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\java\com\weatherforecast\view" />
       <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast\images" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.weatherforecast" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.weatherforecast.controller" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\java\IdeaProjects\WeatherForecast\src\test" />
-      <recent name="D:\java\IdeaProjects\WeatherForecast\src\main\resources\com\weatherforecast" />
-    </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.CitiesReaderTest.exceptionShouldBeThrownIfDiscountIsHigherThanThePrice">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.weatherforecast.App" />
       <module name="WeatherForecast" />
@@ -90,22 +91,69 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SuperMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.weatherforecast.SuperMain" />
+    <configuration name="CitiesReaderTest.cityNameWithCountryCodeMapShouldContainsProperStrings" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeatherForecast" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.weatherforecast.*" />
+          <option name="PATTERN" value="com.weatherforecast.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.weatherforecast.model" />
+      <option name="MAIN_CLASS_NAME" value="com.weatherforecast.model.CitiesReaderTest" />
+      <option name="METHOD_NAME" value="cityNameWithCountryCodeMapShouldContainsProperStrings" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WeatherForecast-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/WeatherForecast-1.0-SNAPSHOT.jar" />
-      <method v="2" />
+    <configuration name="CitiesReaderTest.cityNameWithCountryCodeMapShouldNotBeNullAfterLoadingJsonFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeatherForecast" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.weatherforecast.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.weatherforecast.model" />
+      <option name="MAIN_CLASS_NAME" value="com.weatherforecast.model.CitiesReaderTest" />
+      <option name="METHOD_NAME" value="cityNameWithCountryCodeMapShouldNotBeNullAfterLoadingJsonFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CitiesReaderTest.exceptionShouldBeThrownIfDiscountIsHigherThanThePrice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeatherForecast" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.weatherforecast.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.weatherforecast.model" />
+      <option name="MAIN_CLASS_NAME" value="com.weatherforecast.model.CitiesReaderTest" />
+      <option name="METHOD_NAME" value="exceptionShouldBeThrownIfDiscountIsHigherThanThePrice" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ViewManagerTest.showMainWindow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeatherForecast" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.weatherforecast.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.weatherforecast.view" />
+      <option name="MAIN_CLASS_NAME" value="com.weatherforecast.view.ViewManagerTest" />
+      <option name="METHOD_NAME" value="showMainWindow" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Run" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -136,15 +184,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.SuperMain" />
-      <item itemvalue="JAR Application.WeatherForecast-1.0-SNAPSHOT.jar" />
       <item itemvalue="Maven.Run" />
+      <item itemvalue="JUnit.CitiesReaderTest.cityNameWithCountryCodeMapShouldNotBeNullAfterLoadingJsonFile" />
+      <item itemvalue="JUnit.CitiesReaderTest.cityNameWithCountryCodeMapShouldContainsProperStrings" />
+      <item itemvalue="JUnit.ViewManagerTest.showMainWindow" />
+      <item itemvalue="JUnit.CitiesReaderTest.exceptionShouldBeThrownIfDiscountIsHigherThanThePrice" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CitiesReaderTest.exceptionShouldBeThrownIfDiscountIsHigherThanThePrice" />
+        <item itemvalue="JUnit.ViewManagerTest.showMainWindow" />
+        <item itemvalue="JUnit.CitiesReaderTest.cityNameWithCountryCodeMapShouldContainsProperStrings" />
         <item itemvalue="Application.App" />
-        <item itemvalue="JAR Application.WeatherForecast-1.0-SNAPSHOT.jar" />
-        <item itemvalue="Application.SuperMain" />
+        <item itemvalue="JUnit.CitiesReaderTest.cityNameWithCountryCodeMapShouldNotBeNullAfterLoadingJsonFile" />
       </list>
     </recent_temporary>
   </component>
@@ -197,25 +249,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587130623063" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1589649071317">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1589827340345">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1589565394619" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1589827340345" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589649071317" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1589649071317">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1589827340345">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1589565394619" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1589827340345" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589649071317" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1589649071317">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1589827340345">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1589565394619" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1589827340345" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589649071317" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1589649071317">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1589827340345">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1589565394619" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1589827340345" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589649071317" />
     <state width="1860" height="344" key="GridCell.Tab.1.bottom" timestamp="1588498867570">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -241,9 +293,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="621" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587990951656" />
-    <state x="913" y="229" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1589744195932">
+    <state x="913" y="229" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1589910565495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="913" y="229" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1589910565495" />
     <state x="913" y="229" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589744195932" />
     <state x="342" y="215" key="new project wizard" timestamp="1589043431912">
       <screen x="0" y="0" width="1920" height="1040" />

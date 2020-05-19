@@ -35,7 +35,8 @@ public class CitiesReader {
             List<City> cities = gson.fromJson(jsonArray, listType);
             cityNameWithCountryCodeMap = cities
                     .stream()
-                    .collect(Collectors.toMap(City::getCityName, city -> (city.getCityName() + "," + city.getCountryCode()), (c1, c2) -> c1));
+                    .collect(Collectors.toMap(City::getCityName,
+                            city -> (city.getCityName() + ", " + city.getCountryCode()), (c1, c2) -> c1));
 
         } catch (Exception ex) {
             ex.printStackTrace();
