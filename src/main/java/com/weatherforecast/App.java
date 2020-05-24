@@ -21,5 +21,6 @@ public class App extends Application {
 
         ViewManager viewManager = new ViewManager();
         viewManager.showMainWindow();
+
     }
 }

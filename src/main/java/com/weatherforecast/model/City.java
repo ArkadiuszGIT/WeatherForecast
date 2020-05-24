@@ -8,15 +8,8 @@ public class City {
         return name;
     }
 
-    public void setCityName(String name) {
-        this.name = name;
-    }
-
     public String getCountryCode() {
         return country;
     }
 
-    public void setCountryCode(String country) {
-        this.country = country;
-    }
 }
